@@ -26,10 +26,6 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
-        IMAGE_TAG: latest
       run: 
         docker build -t 440896245143.dkr.ecr.us-west-2.amazonaws.com/sagemaker-ecr-repo:latest .
         docker push 440896245143.dkr.ecr.us-west-2.amazonaws.com/sagemaker-ecr-repo:latest
